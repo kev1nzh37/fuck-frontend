@@ -1,6 +1,6 @@
 import { defineConfig } from 'dumi';
 
-const repo = 'dumi-template';
+const repo = 'fuck-frontend';
 
 export default defineConfig({
   title: repo,
@@ -14,11 +14,45 @@ export default defineConfig({
   // Because of using GitHub Pages
   base: `/${repo}/`,
   publicPath: `/${repo}/`,
+  locales: [['中文', '中文']],
   navs: [
-    null,
+    // {
+    //   title: 'Leetcode 标签分类',
+    //   path: '/tags'
+    // },
+    {
+      title: 'Leetcode',
+      path: '/group',
+    },
+
+    {
+      title: '八股文',
+      children: [
+        {
+          title: 'Javascript',
+          path: '/question',
+        },
+        {
+          title: '工具',
+          path: '/bundle',
+        },
+        {
+          title: '浏览器和网络',
+          path: '/chrome',
+        },
+        {
+          title: 'Node',
+          path: '/node',
+        },
+        {
+          title: 'CSS',
+          path: '/css',
+        },
+      ],
+    },
     {
       title: 'GitHub',
-      path: 'https://github.com/umijs/dumi-template',
+      path: 'https://github.com/kev1nzh37/fuck-frontend',
     },
   ],
   // more config: https://d.umijs.org/config

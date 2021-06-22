@@ -247,7 +247,7 @@ JS 是按照顺序从上往下依次执行的，可以先理解为这段代码�
 
 **图解**
 
-[https://user-gold-cdn.xitu.io/2020/1/18/16fb7acab03b35fa?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2020/1/18/16fb7acab03b35fa?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![https://user-gold-cdn.xitu.io/2020/1/18/16fb7acab03b35fa?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2020/1/18/16fb7acab03b35fa?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 首先，执行栈开始顺序执行
 
@@ -319,7 +319,7 @@ document.body.style = 'background:blue';
 document.body.style = 'background:pink';
 ```
 
-[https://user-gold-cdn.xitu.io/2020/1/18/16fb7c7576f1e3b1?imageslim](https://user-gold-cdn.xitu.io/2020/1/18/16fb7c7576f1e3b1?imageslim)
+![https://user-gold-cdn.xitu.io/2020/1/18/16fb7c7576f1e3b1?imageslim](https://user-gold-cdn.xitu.io/2020/1/18/16fb7c7576f1e3b1?imageslim)
 
 我们看到上面动图背景直接渲染了粉红色，根据上文里讲浏览器会先执行完一个宏任务，再执行当前执行栈的所有微任务，然后移交 GUI 渲染，上面四行代码均属于同一次宏任务，全部执行完才会执行渲染，渲染时`GUI线程`会将所有 UI 改动优化合并，所以视觉上，只会看到页面变成粉红色
 
@@ -332,7 +332,7 @@ setTimeout(() => {
 }, 200);
 ```
 
-[https://user-gold-cdn.xitu.io/2020/1/18/16fb7c81efff6db0?imageslim](https://user-gold-cdn.xitu.io/2020/1/18/16fb7c81efff6db0?imageslim)
+![https://user-gold-cdn.xitu.io/2020/1/18/16fb7c81efff6db0?imageslim](https://user-gold-cdn.xitu.io/2020/1/18/16fb7c81efff6db0?imageslim)
 
 上述代码中，页面会先卡一下蓝色，再变成黑色背景，页面上写的是 200 毫秒，大家可以把它当成 0 毫秒，因为 0 毫秒的话由于浏览器渲染太快，录屏不好捕捉，我又没啥录屏慢放的工具，大家可以自行测试的，结果也是一样，最安全的方法是写一个`index.html`文件，在这个文件中插入上面的 js 脚本，然后浏览器打开，谷歌下使用控制台中`performance`功能查看一帧一帧的加载最为恰当，不过这样录屏不好录所以。。。
 
@@ -350,7 +350,7 @@ Promise.resolve().then(() => {
 console.log(3);
 ```
 
-[https://user-gold-cdn.xitu.io/2020/1/18/16fb7c909570edd9?imageslim](https://user-gold-cdn.xitu.io/2020/1/18/16fb7c909570edd9?imageslim)
+![https://user-gold-cdn.xitu.io/2020/1/18/16fb7c909570edd9?imageslim](https://user-gold-cdn.xitu.io/2020/1/18/16fb7c909570edd9?imageslim)
 
 控制台输出 1 3 2 , 是因为 promise 对象的 then 方法的回调函数是异步执行，所以 2 最后输出
 
@@ -368,7 +368,7 @@ console.log(3);
 
 ### 图解宏任务和微任务
 
-[https://user-gold-cdn.xitu.io/2020/1/18/16fb7adf5afc036d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2020/1/18/16fb7adf5afc036d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![https://user-gold-cdn.xitu.io/2020/1/18/16fb7adf5afc036d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2020/1/18/16fb7adf5afc036d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 首先执行一个宏任务，执行结束后判断是否存在微任务
 
@@ -378,7 +378,7 @@ console.log(3);
 
 ## 图解完整的 Event Loop
 
-[https://user-gold-cdn.xitu.io/2020/1/18/16fb7ae3b678f1ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2020/1/18/16fb7ae3b678f1ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![https://user-gold-cdn.xitu.io/2020/1/18/16fb7ae3b678f1ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2020/1/18/16fb7ae3b678f1ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 首先，整体的 script(作为第一个宏任务)开始执行的时候，会把所有代码分为`同步任务`、`异步任务`两部分
 
@@ -442,7 +442,7 @@ console.log(2);
 
 首先给大家来一个比较直观的动图
 
-[https://user-gold-cdn.xitu.io/2020/1/18/16fb7d0f356a33a4?imageslim](https://user-gold-cdn.xitu.io/2020/1/18/16fb7d0f356a33a4?imageslim)
+![https://user-gold-cdn.xitu.io/2020/1/18/16fb7d0f356a33a4?imageslim](https://user-gold-cdn.xitu.io/2020/1/18/16fb7d0f356a33a4?imageslim)
 
 之所以放这个动图，就是为了向大家推荐这篇好文，动图录屏自参考链接【1】
 
@@ -542,7 +542,7 @@ console.log(8)是同步任务，直接执行，打印 8
 
 在 node 环境下，process.nextTick 的优先级高于 Promise，可以简单理解为在宏任务结束后会先执行微任务队列中的 nextTickQueue 部分，然后才会执行微任务中的 Promise 部分
 
-[https://user-gold-cdn.xitu.io/2020/1/18/16fb7aed8db21b8d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2020/1/18/16fb7aed8db21b8d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![https://user-gold-cdn.xitu.io/2020/1/18/16fb7aed8db21b8d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2020/1/18/16fb7aed8db21b8d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 上图来自 NodeJS 官网
 

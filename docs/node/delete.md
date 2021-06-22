@@ -18,7 +18,7 @@ toc: menu
 
 由于字符串、对象和数组没有固定大小，所有当他们的大小已知时，才能对他们进行动态的存储分配。JavaScript 程序每次创建字符串、数组或对象时，解释器都必须分配内存来存储那个实体。只要像这样动态地分配了内存，最终都要释放这些内存以便他们能够被再用，否则，JavaScript 的解释器将会消耗完系统中所有可用的内存，造成系统崩溃。
 
-[https://user-gold-cdn.xitu.io/2019/4/20/16a38dbb995ca592?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2019/4/20/16a38dbb995ca592?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![https://user-gold-cdn.xitu.io/2019/4/20/16a38dbb995ca592?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2019/4/20/16a38dbb995ca592?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 这段话解释了为什么需要系统需要垃圾回收，JavaScript 不像 C/C++，它有自己的一套垃圾回收机制。
 
@@ -44,7 +44,7 @@ var a = b; //重写a
 
 垃圾收集器在运行的时候会给存储在内存中的所有变量都加上标记。然后，它会去掉环境中的变量以及被环境中的变量引用的标记。而在此之后再被加上标记的变量将被视为准备删除的变量，原因是环境中的变量已经无法访问到这些变量了。最后。垃圾收集器完成内存清除工作，销毁那些带标记的值，并回收他们所占用的内存空间。
 
-[https://user-gold-cdn.xitu.io/2019/4/20/16a39f9f108cfc79?imageslim](https://user-gold-cdn.xitu.io/2019/4/20/16a39f9f108cfc79?imageslim)
+![https://user-gold-cdn.xitu.io/2019/4/20/16a39f9f108cfc79?imageslim](https://user-gold-cdn.xitu.io/2019/4/20/16a39f9f108cfc79?imageslim)
 
 我们用个例子，解释下这个方法：
 
@@ -64,7 +64,7 @@ function add(a, b) {
 
 所谓"引用计数"是指语言引擎有一张"引用表"，保存了内存里面所有的资源（通常是各种值）的引用次数。如果一个值的引用次数是 0，就表示这个值不再用到了，因此可以将这块内存释放。
 
-[https://user-gold-cdn.xitu.io/2019/4/20/16a3973348fd85ed?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2019/4/20/16a3973348fd85ed?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![https://user-gold-cdn.xitu.io/2019/4/20/16a3973348fd85ed?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2019/4/20/16a3973348fd85ed?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 上图中，左下角的两个值，没有任何引用，所以可以释放。
 
@@ -202,7 +202,7 @@ function removeButton() {
 
 新版本的 chrome 在 performance 中查看：
 
-[https://user-gold-cdn.xitu.io/2019/4/20/16a3b6324be7f2d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2019/4/20/16a3b6324be7f2d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![https://user-gold-cdn.xitu.io/2019/4/20/16a3b6324be7f2d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1](https://user-gold-cdn.xitu.io/2019/4/20/16a3b6324be7f2d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 步骤:
 

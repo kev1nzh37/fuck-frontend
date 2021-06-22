@@ -15,7 +15,7 @@ group:
 
 Promise 中只有涉及到状态变更后才需要被执行的回调才算是微任务，比如说 `then`、 `catch` 、`finally` ，其他所有的代码执行都是宏任务（同步执行）。
 
-[https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b9a9112afb34444812084d265041efc~tplv-k3u1fbpfcp-zoom-1.image](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b9a9112afb34444812084d265041efc~tplv-k3u1fbpfcp-zoom-1.image)
+![https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b9a9112afb34444812084d265041efc~tplv-k3u1fbpfcp-zoom-1.image](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8b9a9112afb34444812084d265041efc~tplv-k3u1fbpfcp-zoom-1.image)
 
 上图中蓝色为同步执行，黄色为异步执行（丢到微任务队列中）。
 

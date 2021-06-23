@@ -1,5 +1,5 @@
 ---
-title: 浏览器地址栏中输入URL到页面显示
+title: 浏览器地址栏中输入URL
 order: 2
 ---
 

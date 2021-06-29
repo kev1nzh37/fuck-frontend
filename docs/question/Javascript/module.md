@@ -29,40 +29,37 @@ group:
 
 `CommonJs`中使用`module.exports`导出变量及函数，也可以导出任意类型的值，看如下案例。
 
-```
+```javascript
 // 导出一个对象
 module.exports = {
-    name: "蛙人",
-    age: 24,
-    sex: "male"
-}
+  name: '蛙人',
+  age: 24,
+  sex: 'male',
+};
 
 // 导出任意值
-module.exports.name = "蛙人"
-module.exports.sex = null
-module.exports.age = undefined
-复制代码
+module.exports.name = '蛙人';
+module.exports.sex = null;
+module.exports.age = undefined;
 ```
 
 **直接导出**
 
 导出也可以省略`module`关键字，直接写 exports 导出也可以，看如下案例。
 
-```
-exports.name = "蛙人"
-exports.sex = "male"
-
+```javascript
+exports.name = '蛙人';
+exports.sex = 'male';
 ```
 
 > 注意：如果使用 exports 导出单个值之后，就不能在导出一个对象值，这只会修改 exports 的对象改变，然而修改无效，最终导出还是 name，和 sex，因为最终的导出是由 module.exports 决定的。
 
-```
-exports.name = "蛙人"
-exports.sex = "male"
+```javascript
+exports.name = '蛙人';
+exports.sex = 'male';
 exports = {
-    name: "蛙人"
-}
-
+  name: '蛙人',
+};
 ```
 
 上面 example 中，这种情况会改变对象的引用值则导出无效，所以最后导出的还是`name`，`sex`。
@@ -71,70 +68,65 @@ exports = {
 
 混合导出，`exports`和`module.exports`可以同时使用，不会存在问题。
 
-```
-exports.name = "蛙人"
-module.exports.age = 24
-复制代码
+```javascript
+exports.name = '蛙人';
+module.exports.age = 24;
 ```
 
 ### 导入
 
 `CommonJs`中使用`require`语法可以导入，如果想要单个的值，可以通过解构对象来获取。
 
-```
+```javascript
 // index.js
-module.exports.name = "蛙人"
-module.exports.age = 24
+module.exports.name = '蛙人';
+module.exports.age = 24;
 
-let data = require("./index.js")
-console.log(data) // { name: "蛙人", age: 24 }
-复制代码
+let data = require('./index.js');
+console.log(data); // { name: "蛙人", age: 24 }
 ```
 
 ### 重复导入
 
 不管是`CommonJs`还是`Es Module`都不会重复导入，就是只要该文件内加载过一次这个文件了，我再次导入一次是不会生效的。
 
-```
-let data = require("./index.js")
-let data = require("./index.js") // 不会在执行了
-复制代码
+```javascript
+let data = require('./index.js');
+let data = require('./index.js'); // 不会在执行了
 ```
 
 ### 动态导入
 
 `CommonJs`支持动态导入，什么意思呢，就是可以在语句中，使用`require`语法，来看如下案例。
 
-```
-let lists = ["./index.js", "./config.js"]
-lists.forEach((url) => require(url)) // 动态导入
+```javascript
+let lists = ['./index.js', './config.js'];
+lists.forEach(url => require(url)); // 动态导入
 
 if (lists.length) {
-    require(lists[0]) // 动态导入
+  require(lists[0]); // 动态导入
 }
-复制代码
 ```
 
 ### 导入值的变化
 
 `CommonJs`导入的值是拷贝的，所以可以修改拷贝值，但这会引起变量污染，一不小心就重名。
 
-```
+```javascript
 // index.js
 let num = 0;
 module.exports = {
-    num,
-    add() {
-       ++ num
-    }
-}
+  num,
+  add() {
+    ++num;
+  },
+};
 
-let { num, add } = require("./index.js")
-console.log(num) // 0
-add()
-console.log(num) // 0
-num = 10
-复制代码
+let { num, add } = require('./index.js');
+console.log(num); // 0
+add();
+console.log(num); // 0
+num = 10;
 ```
 
 上面 example 中，可以看到`exports`导出的值是值的拷贝，更改完`++ num`值没有发生变化，并且导入的`num`的值我们也可以进行修改
@@ -149,27 +141,26 @@ num = 10
 
 在`Es Module`中导出分为两种，单个导出(`export`)、默认导出(`export default`)，单个导出在导入时不像`CommonJs`一样直接把值全部导入进来了，`Es Module`中可以导入我想要的值。那么默认导出就是全部直接导入进来，当然`Es Module`中也可以导出任意类型的值。
 
-```
+```javascript
 // 导出变量
-export const name = "蛙人"
-export const age = 24
+export const name = '蛙人';
+export const age = 24;
 
 // 导出函数也可以
 export function fn() {}
-export const test = () => {}
+export const test = () => {};
 
 // 如果有多个的话
-const name = "蛙人"
-const sex = "male"
-export { name, sex }
-复制代码
+const name = '蛙人';
+const sex = 'male';
+export { name, sex };
 ```
 
 ### 混合导出
 
 可以使用`export`和`export default`同时使用并且互不影响，只需要在导入时地方注意，如果文件里有混合导入，则必须先导入默认导出的，在导入单个导入的值。
 
-```
+```javascript
 export const name = "蛙人"
 export const age = 24
 
@@ -177,87 +168,82 @@ export default {
     fn() {}，
     msg: "hello 蛙人"
 }
-复制代码
+
 ```
 
 ### 导入
 
 `Es Module`使用的是`import`语法进行导入。如果要单个导入则必须使用花括号`{}` ，**注意：这里的花括号跟解构不一样**。
 
-```
+```javascript
 // index,js
-export const name = "蛙人"
-export const age = 24
+export const name = '蛙人';
+export const age = 24;
 
-import { name, age } from './index.js'
-console.log(name, age) // "蛙人" 24
+import { name, age } from './index.js';
+console.log(name, age); // "蛙人" 24
 
 // 如果里面全是单个导出，我们就想全部直接导入则可以这样写
-import * as all from './index.js'
-console.log(all) // {name: "蛙人", age: 24}
-复制代码
+import * as all from './index.js';
+console.log(all); // {name: "蛙人", age: 24}
 ```
 
 ### 混合导入
 
 混合导入，则该文件内用到混合导入，`import`语句必须先是默认导出，后面再是单个导出，顺序一定要正确否则报错。
 
-```
+```javascript
 // index,js
-export const name = "蛙人"
-export const age = 24
+export const name = '蛙人';
+export const age = 24;
 export default {
-    msg: "蛙人"
-}
+  msg: '蛙人',
+};
 
-import msg, { name, age } from './index.js'
-console.log(msg) // { msg: "蛙人" }
-复制代码
+import msg, { name, age } from './index.js';
+console.log(msg); // { msg: "蛙人" }
 ```
 
 上面 example 中，如果导入的名称不想跟原本地名称一样，则可以起别名。
 
-```
+```javascript
 // index,js
-export const name = "蛙人"
-export const age = 24
+export const name = '蛙人';
+export const age = 24;
 export default {
-    msg: "蛙人"
-}
+  msg: '蛙人',
+};
 
-import { default as all,  name, age } from './index.js'
-console.log(all) // { msg: "蛙人" }
-复制代码
+import { default as all, name, age } from './index.js';
+console.log(all); // { msg: "蛙人" }
 ```
 
 ### 导入值的变化
 
 `export`导出的值是值的引用，并且内部有映射关系，这是`export`关键字的作用。而且导入的值，不能进行修改也就是只读状态。
 
-```
+```javascript
 // index.js
 export let num = 0;
 export function add() {
-    ++ num
+  ++num;
 }
 
-import { num, add } from "./index.js"
-console.log(num) // 0
-add()
-console.log(num) // 1
-num = 10 // 抛出错误
-复制代码
+import { num, add } from './index.js';
+console.log(num); // 0
+add();
+console.log(num); // 1
+num = 10; // 抛出错误
 ```
 
 ### Es Module 是静态
 
 就是`Es Module`语句``import`只能声明在该文件的最顶部，不能动态加载语句，`Es Module`语句运行在代码编译时。
 
-```
+```javascript
 if (true) {
-	import xxx from 'XXX' // 报错
+  import xxx from 'XXX'; // 报错
 }
-复制代码
 ```
 
 ### 总结

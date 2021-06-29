@@ -33,8 +33,12 @@ export default defineConfig({
           path: '/question',
         },
         {
-          title: '工具',
+          title: '工程化',
           path: '/bundle',
+        },
+        {
+          title: '扩展',
+          path: '/script',
         },
         {
           title: '浏览器和网络',

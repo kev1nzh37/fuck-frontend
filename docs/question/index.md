@@ -36,3 +36,4 @@ order: 1
 1. [垃圾回收和内存泄露](/question/mixin/delete)
 1. [js 实现请求池](/question/mixin/pool)
 1. [TypeScript 高级用法](/question/mixin/typescript)
+1. [由浅入深事件循环](/question/mixin/event)

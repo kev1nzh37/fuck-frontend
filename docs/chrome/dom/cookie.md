@@ -14,13 +14,9 @@ group:
 
 在 chrome 浏览器中打开这个网站，进入开发者模式，点击`Resources`栏 -> 选择`cookies`，我们会看到如下图所示的界面：
 
-![https://segmentfault.com/img/bVthnt](https://segmentfault.com/img/bVthnt)
-
 解释一下：左边栏`Cookies`下方会列举当前网页中设置过`cookie`的域都有哪些。上图中只有一个域，即“ppsc.sankuai.com”。而右侧区域显示的就是某个域下具体的  `cookie`  列表，对应上图就是“ppsc.sankuai.com”域下设置的 4 个`cookie`。
 
 在这个网页中我往`http://ppsc.sankuai.com/getList`接口发了一个 Ajax 请求，`request header`如下图所示：
-
-![https://segmentfault.com/img/bVthnG](https://segmentfault.com/img/bVthnG)
 
 从上图中我们会看到`request header`中自动添加了`Cookie`字段（我并没有手动添加这个字段哦~），`Cookie`字段的值其实就是我设置的那 4 个  `cookie`。这个请求最终会发送到`http://ppsc.sankuai.com`这个服务器上，这个服务器就能从接收到的`request header`中提取那 4 个`cookie`。
 

@@ -24,7 +24,10 @@ export default defineConfig({
       title: 'Leetcode',
       path: '/group',
     },
-
+    {
+      title: '思维导图笔记',
+      path: '/end',
+    },
     {
       title: '八股文',
       children: [

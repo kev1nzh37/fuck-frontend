@@ -36,6 +36,10 @@ export default defineConfig({
           path: '/question',
         },
         {
+          title: 'React',
+          path: '/react',
+        },
+        {
           title: '工程化',
           path: '/bundle',
         },

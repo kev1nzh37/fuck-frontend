@@ -1,6 +1,6 @@
 ---
 title: 深入浅出 Babel 下篇
-order: 4
+order: 6
 toc: menu
 ---
 
